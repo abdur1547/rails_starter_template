@@ -61,7 +61,7 @@ gem 'httparty', '~> 0.22.0'
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails', '~> 6.4'
-  gem 'faker', '~> 3.4'
+  gem 'faker', '~> 3.5'
   gem 'json_matchers', '~> 0.11.1'
   gem 'rspec-rails', '~> 7.0'
   gem 'simplecov', require: false
