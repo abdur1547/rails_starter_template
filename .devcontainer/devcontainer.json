@@ -31,7 +31,7 @@
                 "emmet.includeLanguages": {
                     "erb": "html"
                 },
-                "ruby.format": "castwide.solargraph",
+                "ruby.format": "Shopify.ruby-lsp",
                 "editor.formatOnSave": true
             },
             "extensions": [
@@ -41,10 +41,9 @@
                 "shyykoserhiy.git-autoconfig",
                 "eamodio.gitlens",
                 "christian-kohler.path-intellisense",
-                "castwide.solargraph",
                 "PKief.material-icon-theme",
                 "vayan.haml",
-                "LoranKloeze.ruby-rubocop-revived"
+                "Shopify.ruby-lsp"
             ]
         }
     },
@@ -55,7 +54,7 @@
         5432
     ],
     // Use 'onCreateCommand' to run commands while the container is creating.
-    "onCreateCommand": "gem install solargraph",
+    // "onCreateCommand": "",
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "./bin/setup"
 }
