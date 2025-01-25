@@ -28,16 +28,16 @@ module Api::V0::Auth
     end
 
     def validate_user_info
-      return Failure('uncomplete user info') unless valid_user?
+      return Failure("uncomplete user info") unless valid_user?
 
       Success()
     end
 
     def valid_user?
-      google_response['email_verified'] &&
-        google_response['email'] &&
-        google_response['given_name'] &&
-        google_response['family_name']
+      google_response["email_verified"] &&
+        google_response["email"] &&
+        google_response["given_name"] &&
+        google_response["family_name"]
     end
 
     def create_user
@@ -48,10 +48,10 @@ module Api::V0::Auth
     def formate_data
       {
         info: {
-          provider: 'google',
-          uid: google_response['email'],
-          email: google_response['email'],
-          avatar_url: google_response['picture'],
+          provider: "google",
+          uid: google_response["email"],
+          email: google_response["email"],
+          avatar_url: google_response["picture"],
           name: "#{google_response['given_name']} #{google_response['family_name']}"
         }
       }

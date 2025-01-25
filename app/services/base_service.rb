@@ -6,6 +6,6 @@ class BaseService
   end
 
   def call
-    raise NotImplementedError, 'Subclasses must implement a `call` method'
+    raise NotImplementedError, "Subclasses must implement a `call` method"
   end
 end

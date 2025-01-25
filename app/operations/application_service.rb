@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'dry/matcher/result_matcher'
+require "dry/matcher/result_matcher"
 
 module ApplicationService
   def self.included(klass)
@@ -49,7 +49,7 @@ module ApplicationService
     end
 
     def error_message(key, error)
-      { key => [error] }
+      { key => [ error ] }
     end
 
     def paginate(records, page, per_page)

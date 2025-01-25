@@ -2,6 +2,6 @@
 
 class CustomError < StandardError
   def message
-    'custom error message'
+    "custom error message"
   end
 end

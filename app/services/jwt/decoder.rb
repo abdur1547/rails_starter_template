@@ -14,7 +14,7 @@ module Jwt
     end
 
     def call
-      decoded_token = JWT.decode(access_token, ENV.fetch('SECRET_KEY_BASE', nil), verify, verify_iat: true)[0]
+      decoded_token = JWT.decode(access_token, ENV.fetch("SECRET_KEY_BASE", nil), verify, verify_iat: true)[0]
       decoded_token.symbolize_keys
     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError
       nil

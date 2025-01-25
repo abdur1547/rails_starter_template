@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'oj'
+require "oj"
 
 Oj::Rails.mimic_JSON
 Blueprinter.configure do |config|

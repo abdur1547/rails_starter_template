@@ -16,11 +16,11 @@ module Jwt
       user = Jwt::Authenticator.authenticate_user_from_token(decoded_token)
       raise ::Auth::UnauthorizedError if user.blank?
 
-      [user, decoded_token]
+      [ user, decoded_token ]
     end
 
     def authenticate_header(headers)
-      headers['Authorization']&.split('Bearer ')&.last
+      headers["Authorization"]&.split("Bearer ")&.last
     end
 
     def authenticate_user_from_token(decoded_token)

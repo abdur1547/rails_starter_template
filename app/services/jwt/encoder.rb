@@ -17,7 +17,7 @@ module Jwt
     def call
       access_token = new_jwt
 
-      [access_token, jti, exp]
+      [ access_token, jti, exp ]
     end
 
     def new_jwt
@@ -28,7 +28,7 @@ module Jwt
           iat: token_issued_at,
           exp:
         },
-        ENV.fetch('SECRET_KEY_BASE', nil)
+        ENV.fetch("SECRET_KEY_BASE", nil)
       )
     end
 
