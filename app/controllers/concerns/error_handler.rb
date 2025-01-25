@@ -25,22 +25,22 @@ module ErrorHandler
   end
 
   def process_standard_error(exception)
-    render json: { success: false, errors: [exception.message] }, status: :internal_server_error
+    render json: { success: false, errors: [ exception.message ] }, status: :internal_server_error
   end
 
-  def unauthorized_response(reason = 'You are unauthorized to view this resource')
-    render json: { success: false, errors: [reason] }, status: :unauthorized
+  def unauthorized_response(reason = "You are unauthorized to view this resource")
+    render json: { success: false, errors: [ reason ] }, status: :unauthorized
   end
 
-  def not_found_response(reason = 'The requested resource does not exist')
-    render json: { success: false, errors: [reason] }, status: :not_found
+  def not_found_response(reason = "The requested resource does not exist")
+    render json: { success: false, errors: [ reason ] }, status: :not_found
   end
 
   def unprocessable_entity(reason)
-    render json: { success: false, errors: [reason] }, status: :unprocessable_entity
+    render json: { success: false, errors: [ reason ] }, status: :unprocessable_entity
   end
 
-  def forbidden_response(reason = 'forbidden')
-    render json: { success: false, errors: [reason] }, status: :forbidden
+  def forbidden_response(reason = "forbidden")
+    render json: { success: false, errors: [ reason ] }, status: :forbidden
   end
 end

@@ -3,7 +3,7 @@
 module Auth
   class InvalidTokenError < ::CustomError
     def message
-      'jwt token is invalid'
+      "jwt token is invalid"
     end
   end
 end

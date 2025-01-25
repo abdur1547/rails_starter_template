@@ -27,7 +27,7 @@ module Api::V0
 
       def validate_email
         email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-        email_regex.match?(params[:email]) ? Success() : Failure(error_message(:email, 'invalid email address'))
+        email_regex.match?(params[:email]) ? Success() : Failure(error_message(:email, "invalid email address"))
       end
 
       def create_user

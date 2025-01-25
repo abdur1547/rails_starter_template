@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require 'sidekiq/web'
+require "sidekiq/web"
 
 Rails.application.routes.draw do
-  mount ActionCable.server => '/cable'
-  mount Sidekiq::Web => '/sidekiq'
+  mount ActionCable.server => "/cable"
+  mount Sidekiq::Web => "/sidekiq"
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    sessions: "users/sessions",
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-  get 'up' => 'rails/health#show', as: :rails_health_check
+  get "up" => "rails/health#show", as: :rails_health_check
 
-  root 'welcome#index'
+  root "welcome#index"
 
   draw :api_v0
 end

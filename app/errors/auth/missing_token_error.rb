@@ -3,7 +3,7 @@
 module Auth
   class MissingTokenError < ::CustomError
     def message
-      'JWT token is missing, JWT is required in headers of in params'
+      "JWT token is missing, JWT is required in headers of in params"
     end
   end
 end
