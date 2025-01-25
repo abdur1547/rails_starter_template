@@ -10,10 +10,10 @@
             "packages": "libpq-dev, libvips" // For pg gem
         },
         "ghcr.io/devcontainers/features/ruby:1": {
-            "version": "3.2.4"
+            "version": "3.4.1"
         },
         "ghcr.io/devcontainers/features/node:1": {
-            "version": 20
+            "version": 22
         },
         "ghcr.io/devcontainers/features/common-utils:1": {
             "username": "vscode",
@@ -32,6 +32,11 @@
                     "erb": "html"
                 },
                 "ruby.format": "Shopify.ruby-lsp",
+                "rubyLsp.formatter": "rubocop",
+                "rubyLsp.rubyVersionManager": {
+                    "identifier": "rvm",
+                    "rvmExecutablePath": "~/.rvm/bin/rvm"
+                },
                 "editor.formatOnSave": true
             },
             "extensions": [
