@@ -94,7 +94,7 @@ GEM
     connection_pool (2.5.0)
     content_disposition (1.0.0)
     crass (1.0.6)
-    csv (3.3.2)
+    csv (3.3.3)
     date (3.4.1)
     debug (1.10.0)
       irb (~> 1.10)
@@ -181,7 +181,7 @@ GEM
       haml (>= 4.0)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    httparty (0.22.0)
+    httparty (0.23.1)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -481,7 +481,7 @@ DEPENDENCIES
   figaro
   haml (~> 6.3)
   html2haml
-  httparty (~> 0.22.0)
+  httparty (~> 0.23.1)
   importmap-rails
   json_matchers (~> 0.11.1)
   jwt (~> 2.10)

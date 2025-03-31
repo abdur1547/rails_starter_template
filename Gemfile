@@ -56,7 +56,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 # http requests
-gem "httparty", "~> 0.22.0"
+gem "httparty", "~> 0.23.1"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]
