@@ -41,7 +41,7 @@ gem "redis", ">= 4.0.1"
 
 gem "rack-cors"
 
-gem "pagy", "~> 9.3"
+gem "pagy", "~> 9.4"
 
 gem "devise", "~> 4.9"
 gem "jwt", "~> 2.10"
