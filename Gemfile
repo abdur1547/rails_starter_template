@@ -24,7 +24,7 @@ gem "dry-monads", "~> 1.9"
 gem "dry-validation", "~> 1.11"
 
 # for JSON responce
-gem "blueprinter", "~> 1.1.2"
+gem "blueprinter", "~> 1.2.1"
 gem "oj"
 
 gem "turbo-rails"
