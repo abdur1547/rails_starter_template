@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby "3.4.1"
 
-gem "rails", "~> 8.0.2"
+gem "rails", "~> 8.0.3"
 
 gem "sprockets-rails"
 
@@ -44,7 +44,7 @@ gem "rack-cors"
 gem "pagy", "~> 9.4"
 
 gem "devise", "~> 4.9"
-gem "jwt", "~> 2.10"
+gem "jwt", "~> 3.1"
 gem "omniauth", "~> 2.1"
 gem "omniauth-google-oauth2", "~> 1.2"
 gem "omniauth-rails_csrf_protection", "~> 1.0", ">= 1.0.2"
@@ -63,7 +63,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.5"
   gem "faker", "~> 3.5"
   gem "json_matchers", "~> 0.11.1"
-  gem "rspec-rails", "~> 7.1"
+  gem "rspec-rails", "~> 8.0"
   gem "simplecov", require: false
 end
 
