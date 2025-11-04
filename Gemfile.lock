@@ -86,7 +86,7 @@ GEM
     bindex (0.8.1)
     binding_of_caller (1.0.1)
       debug_inspector (>= 1.2.0)
-    blueprinter (1.1.2)
+    blueprinter (1.2.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
     builder (3.3.0)
@@ -201,7 +201,7 @@ GEM
     json_matchers (0.11.1)
       json_schema
     json_schema (0.21.0)
-    jwt (2.10.2)
+    jwt (3.1.2)
       base64
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
@@ -460,7 +460,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  blueprinter (~> 1.1.2)
+  blueprinter (~> 1.2.1)
   bootsnap
   debug
   devise (~> 4.9)
@@ -475,7 +475,7 @@ DEPENDENCIES
   httparty (~> 0.23.1)
   importmap-rails
   json_matchers (~> 0.11.1)
-  jwt (~> 2.10)
+  jwt (~> 3.1)
   oj
   omniauth (~> 2.1)
   omniauth-google-oauth2 (~> 1.2)
@@ -484,7 +484,7 @@ DEPENDENCIES
   pg (~> 1.6)
   puma (>= 5.0)
   rack-cors
-  rails (~> 8.0.2)
+  rails (~> 8.0.3)
   redis (>= 4.0.1)
   rspec-rails (~> 8.0)
   rubocop

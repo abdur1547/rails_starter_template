@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby "3.4.1"
 
-gem "rails", "~> 8.0.2"
+gem "rails", "~> 8.0.3"
 
 gem "sprockets-rails"
 
@@ -24,7 +24,7 @@ gem "dry-monads", "~> 1.9"
 gem "dry-validation", "~> 1.11"
 
 # for JSON responce
-gem "blueprinter", "~> 1.1.2"
+gem "blueprinter", "~> 1.2.1"
 gem "oj"
 
 gem "turbo-rails"
@@ -44,7 +44,7 @@ gem "rack-cors"
 gem "pagy", "~> 9.4"
 
 gem "devise", "~> 4.9"
-gem "jwt", "~> 2.10"
+gem "jwt", "~> 3.1"
 gem "omniauth", "~> 2.1"
 gem "omniauth-google-oauth2", "~> 1.2"
 gem "omniauth-rails_csrf_protection", "~> 1.0", ">= 1.0.2"
