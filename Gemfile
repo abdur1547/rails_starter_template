@@ -4,11 +4,11 @@ source "https://rubygems.org"
 
 ruby "3.4.1"
 
-gem "rails", "~> 8.0.2"
+gem "rails", "~> 8.0.3"
 
 gem "sprockets-rails"
 
-gem "pg", "~> 1.5"
+gem "pg", "~> 1.6"
 
 gem "puma", ">= 5.0"
 
@@ -20,11 +20,11 @@ gem "haml", "~> 6.3"
 
 # dry-rb gems
 gem "dry-matcher", "~> 1.0"
-gem "dry-monads", "~> 1.8"
+gem "dry-monads", "~> 1.9"
 gem "dry-validation", "~> 1.11"
 
 # for JSON responce
-gem "blueprinter", "~> 1.1.2"
+gem "blueprinter", "~> 1.2.1"
 gem "oj"
 
 gem "turbo-rails"
@@ -41,7 +41,7 @@ gem "redis", ">= 4.0.1"
 
 gem "rack-cors"
 
-gem "pagy", "~> 9.3"
+gem "pagy", "~> 9.4"
 
 gem "devise", "~> 4.9"
 gem "jwt", "~> 3.1"
