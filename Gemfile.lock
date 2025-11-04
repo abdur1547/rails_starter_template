@@ -201,7 +201,7 @@ GEM
     json_matchers (0.11.1)
       json_schema
     json_schema (0.21.0)
-    jwt (2.10.2)
+    jwt (3.1.2)
       base64
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
@@ -351,10 +351,10 @@ GEM
     rspec-mocks (3.13.7)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (7.1.1)
-      actionpack (>= 7.0)
-      activesupport (>= 7.0)
-      railties (>= 7.0)
+    rspec-rails (8.0.2)
+      actionpack (>= 7.2)
+      activesupport (>= 7.2)
+      railties (>= 7.2)
       rspec-core (~> 3.13)
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
@@ -475,7 +475,7 @@ DEPENDENCIES
   httparty (~> 0.23.1)
   importmap-rails
   json_matchers (~> 0.11.1)
-  jwt (~> 2.10)
+  jwt (~> 3.1)
   oj
   omniauth (~> 2.1)
   omniauth-google-oauth2 (~> 1.2)
@@ -486,7 +486,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 8.0.3)
   redis (>= 4.0.1)
-  rspec-rails (~> 7.1)
+  rspec-rails (~> 8.0)
   rubocop
   rubocop-rails
   rubocop-rails-omakase
