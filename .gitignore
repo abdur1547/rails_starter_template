@@ -33,3 +33,7 @@
 # Ignore key files for decrypting credentials and more.
 /config/*.key
 
+# RSpec specific ignores
+/spec/examples.txt
+/coverage/
+
