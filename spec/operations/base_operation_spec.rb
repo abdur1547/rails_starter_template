@@ -196,11 +196,11 @@ RSpec.describe BaseOperation do
 
       it "converts string error to hash" do
         result = BaseOperation::Result.new(success: false, errors: "Something failed")
-        expect(result.errors_hash).to eq(base: ["Something failed"])
+        expect(result.errors_hash).to eq(base: [ "Something failed" ])
       end
 
       it "returns hash errors as-is" do
-        errors = { email: ["is invalid"], name: ["can't be blank"] }
+        errors = { email: [ "is invalid" ], name: [ "can't be blank" ] }
         result = BaseOperation::Result.new(success: false, errors: errors)
         expect(result.errors_hash).to eq(errors)
       end

@@ -30,7 +30,7 @@ RSpec.describe ServiceResult do
     end
 
     it 'accepts arrays as data' do
-      data = [1, 2, 3, 4, 5]
+      data = [ 1, 2, 3, 4, 5 ]
       result = described_class.success(data)
 
       expect(result).to be_success
@@ -56,7 +56,7 @@ RSpec.describe ServiceResult do
     end
 
     it 'accepts array of errors' do
-      errors = ['Error 1', 'Error 2', 'Error 3']
+      errors = [ 'Error 1', 'Error 2', 'Error 3' ]
       result = described_class.failure(errors)
 
       expect(result).to be_failure

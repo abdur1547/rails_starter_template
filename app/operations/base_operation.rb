@@ -37,7 +37,7 @@ class BaseOperation
       when Hash
         errors
       when String
-        { base: [errors] }
+        { base: [ errors ] }
       else
         {}
       end
