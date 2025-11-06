@@ -44,6 +44,9 @@ gem "image_processing", "~> 1.2"
 gem "dry-validation", "~> 1.10"
 gem "dry-monads", "~> 1.6"
 
+# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
+gem "figaro"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
