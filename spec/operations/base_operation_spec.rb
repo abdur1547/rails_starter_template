@@ -213,23 +213,19 @@ RSpec.describe BaseOperation do
     end
   end
 
-  describe "helper methods" do
+  describe "dry-monads integration" do
     let(:operation) { TestOperationWithoutContract.new }
 
-    describe "#success" do
-      it "creates a Success monad" do
-        result = operation.send(:success, data: "value")
-        expect(result).to be_a(Dry::Monads::Success)
-        expect(result.value!).to eq(data: "value")
-      end
+    it "includes Success monad" do
+      result = operation.instance_eval { Success(data: "value") }
+      expect(result).to be_a(Dry::Monads::Success)
+      expect(result.value!).to eq(data: "value")
     end
 
-    describe "#failure" do
-      it "creates a Failure monad" do
-        result = operation.send(:failure, "error message")
-        expect(result).to be_a(Dry::Monads::Failure)
-        expect(result.failure).to eq("error message")
-      end
+    it "includes Failure monad" do
+      result = operation.instance_eval { Failure("error message") }
+      expect(result).to be_a(Dry::Monads::Failure)
+      expect(result.failure).to eq("error message")
     end
   end
 
