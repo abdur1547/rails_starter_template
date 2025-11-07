@@ -1,11 +1,11 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04
+# Make sure RUBY_VERSION matches the Ruby version in .ruby-version
+ARG RUBY_VERSION=3.4.5
+FROM ghcr.io/rails/devcontainer/images/ruby:$RUBY_VERSION
 
-# Default value to allow debug server to serve content over GitHub Codespace's port forwarding service
-# The value is a comma-separated list of allowed domains.
-ENV RAILS_DEVELOPMENT_HOSTS=".githubpreview.dev,.preview.app.github.dev,.app.github.dev"
+# Ensure binding is always 0.0.0.0
+# Binds the server to all IP addresses of the container, so it can be accessed from outside the container.
+ENV BINDING="0.0.0.0"
 
-# Install additional OS packages and PostgreSQL client.
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y upgrade \
-    && apt-get -y install --no-install-recommends \
-    postgresql-client software-properties-common
+# RUN apt-get update && \
+#   apt-get upgrade -y && \
+#   apt-get install -y build-essential libpq-dev

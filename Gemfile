@@ -1,78 +1,91 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
-ruby "3.4.1"
-
-gem "rails", "~> 8.0.3"
-
-gem "sprockets-rails"
-
-gem "pg", "~> 1.6"
-
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> 8.1.1"
+# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem "propshaft"
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
+# Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
-
-gem "figaro"
-
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
-
-gem "haml", "~> 6.3"
-
-# dry-rb gems
-gem "dry-matcher", "~> 1.0"
-gem "dry-monads", "~> 1.9"
-gem "dry-validation", "~> 1.11"
-
-# for JSON responce
-gem "blueprinter", "~> 1.2.1"
-gem "oj"
-
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
+# Fast JSON serialization for APIs [https://github.com/procore/blueprinter]
+gem "blueprinter"
 
-# for file storage
-gem "shrine", "~> 3.6"
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# gem "bcrypt", "~> 3.1.7"
 
-gem "sidekiq", "~> 8.0"
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[ windows jruby ]
 
-gem "redis", ">= 4.0.1"
-# gem "kredis"
+# Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
+gem "solid_cache"
+gem "solid_queue"
+gem "solid_cable"
 
-gem "rack-cors"
-
-gem "pagy", "~> 9.4"
-
-gem "devise", "~> 4.9"
-gem "jwt", "~> 3.1"
-gem "omniauth", "~> 2.1"
-gem "omniauth-google-oauth2", "~> 1.2"
-gem "omniauth-rails_csrf_protection", "~> 1.0", ">= 1.0.2"
-
-gem "tzinfo-data"
-
+# Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# gem "image_processing", "~> 1.2"
+# Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
+gem "kamal", require: false
 
-# http requests
-gem "httparty", "~> 0.23.1"
+# Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
+gem "thruster", require: false
+
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+gem "image_processing", "~> 1.2"
+
+# Dry gems for operations pattern
+gem "dry-validation", "~> 1.10"
+gem "dry-monads", "~> 1.6"
+
+# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
+gem "figaro"
 
 group :development, :test do
-  gem "debug", platforms: %i[mri windows]
-  gem "factory_bot_rails", "~> 6.5"
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+
+  # Audits gems for known security defects (use config/bundler-audit.yml to ignore issues)
+  gem "bundler-audit", require: false
+
+  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
+  gem "brakeman", require: false
+
+  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  gem "rubocop-rails-omakase", require: false
+
+  # RSpec testing framework
+  gem "rspec-rails", "~> 7.1"
+
+  # Factory Bot for test fixtures
+  gem "factory_bot_rails", "~> 6.4"
+
+  # Generate fake data for testing
   gem "faker", "~> 3.5"
-  gem "json_matchers", "~> 0.11.1"
-  gem "rspec-rails", "~> 8.0"
-  gem "simplecov", require: false
 end
 
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem "html2haml"
-  gem "rubocop"
-  gem "rubocop-rails"
-  gem "rubocop-rails-omakase"
+  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+end
+
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "capybara"
+  gem "selenium-webdriver"
+
+  # RSpec matchers for common Rails functionality
+  gem "shoulda-matchers", "~> 6.4"
+
+  # Database cleaner for test isolation
+  gem "database_cleaner-active_record", "~> 2.2"
+
+  # Code coverage analysis
+  gem "simplecov", "~> 0.22", require: false
 end

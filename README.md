@@ -1,31 +1,24 @@
-# Rails Starter App
+# README
 
-This is a Rails starter app primarily intended for building APIs, but it also includes Rails views. The app comes with a Docker development environment and Docker for production deployment.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Features
+Things you may want to cover:
 
-- **Authentication**
-  - Devise
-  - Devise Token Auth
-  - Google OmniAuth (for Rails views only; API setup needed)
-- **Environment**
-  - Docker development environment
-  - Docker for production deployment
-- **Versions**
-  - Rails: 7
-  - Ruby: 3.2.4
+* Ruby version
 
-## Getting Started
+* System dependencies
 
-### Prerequisites
+* Configuration
 
-- Docker
-- Docker Compose
+* Database creation
 
-### Setup
+* Database initialization
 
-1. Clone the repository:
+* How to run the test suite
 
-   ```bash
-   git clone git@github.com:khalilahmad1547/rails_starter_template.git
-   cd rails_starter_template
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
