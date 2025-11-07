@@ -89,3 +89,5 @@ group :test do
   # Code coverage analysis
   gem "simplecov", "~> 0.22", require: false
 end
+
+gem "rack-cors", "~> 3.0"
