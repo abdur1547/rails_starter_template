@@ -47,6 +47,12 @@ gem "dry-monads", "~> 1.6"
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
 gem "figaro"
 
+# Authentication
+gem "devise", "~> 4.9"
+gem "devise-jwt", "~> 0.11"
+gem "omniauth-google-oauth2", "~> 1.1"
+gem "omniauth-rails_csrf_protection"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
