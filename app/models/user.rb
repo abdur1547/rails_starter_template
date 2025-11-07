@@ -5,7 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :trackable, :omniauthable, omniauth_providers: [ :google_oauth2 ]
+         :trackable, :jwt_authenticatable, :omniauthable,
+         jwt_revocation_strategy: JwtDenylist,
+         omniauth_providers: [ :google_oauth2 ]
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true
