@@ -5,7 +5,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
 
     volumes:
-      - ../../new_rails_template:/workspaces/new_rails_template:cached
+      - ../../rails_starter_template:/workspaces/rails_starter_template:cached
 
     command: sleep infinity
 

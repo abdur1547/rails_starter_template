@@ -61,7 +61,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # RSpec testing framework
-  gem "rspec-rails", "~> 7.1"
+  gem "rspec-rails", "~> 8.0"
 
   # Factory Bot for test fixtures
   gem "factory_bot_rails", "~> 6.4"
@@ -89,3 +89,5 @@ group :test do
   # Code coverage analysis
   gem "simplecov", "~> 0.22", require: false
 end
+
+gem "rack-cors", "~> 3.0"
