@@ -33,7 +33,7 @@ development:
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: new_rails_template
+  #username: rails_starter_template
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -93,7 +93,7 @@ production:
   primary: &primary_production
     <<: *default
     database: new_rails_template_production
-    username: new_rails_template
+    username: rails_starter_template
     password: <%= ENV["NEW_RAILS_TEMPLATE_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
