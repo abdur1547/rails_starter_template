@@ -30,6 +30,7 @@ Kamal (formerly known as MRSK) deploys your application as Docker containers on 
 ### Remote Servers
 
 Each server needs:
+
 - Docker installed and running
 - SSH access (preferably with key-based authentication)
 - Open ports: 80 (HTTP), 443 (HTTPS), 22 (SSH)
@@ -38,6 +39,7 @@ Each server needs:
 ### Docker Registry
 
 You need a Docker registry to store your images:
+
 - Docker Hub (free for public images)
 - GitHub Container Registry (free)
 - AWS ECR
@@ -49,6 +51,7 @@ You need a Docker registry to store your images:
 ### 1. Install Kamal
 
 Already included in Gemfile:
+
 ```ruby
 gem "kamal", require: false
 ```
@@ -115,11 +118,11 @@ Edit `config/deploy.yml`:
 
 ```yaml
 # Name of your application
-service: new_rails_template
+service: rails_starter_template
 
 # Image name for Docker registry
 # Format: registry/organization/app-name
-image: your-dockerhub-username/new_rails_template
+image: your-dockerhub-username/rails_starter_template
 
 # Servers to deploy to
 servers:
@@ -385,9 +388,9 @@ kamal rollback 20231106120000
 Create `config/deploy.staging.yml`:
 
 ```yaml
-service: new_rails_template-staging
+service: rails_starter_template-staging
 
-image: your-dockerhub-username/new_rails_template
+image: your-dockerhub-username/rails_starter_template
 
 servers:
   web:
@@ -401,7 +404,6 @@ env:
     RAILS_ENV: staging
   secret:
     - RAILS_MASTER_KEY
-
 # ... rest of configuration
 ```
 
@@ -559,13 +561,13 @@ ssh deploy@your-server.com
 docker ps
 
 # Inspect container
-docker inspect kamal-new_rails_template-web-latest
+docker inspect kamal-rails_starter_template-web-latest
 
 # View container logs directly
-docker logs kamal-new_rails_template-web-latest
+docker logs kamal-rails_starter_template-web-latest
 
 # Execute shell in container
-docker exec -it kamal-new_rails_template-web-latest /bin/bash
+docker exec -it kamal-rails_starter_template-web-latest /bin/bash
 
 # Check container resources
 docker stats
@@ -638,26 +640,26 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
           bundler-cache: true
-      
+
       - name: Install Kamal
         run: gem install kamal
-      
+
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
-      
+
       - name: Set up environment
         run: |
           mkdir -p .kamal
@@ -672,7 +674,7 @@ jobs:
           export GOOGLE_CLIENT_SECRET="${{ secrets.GOOGLE_CLIENT_SECRET }}"
           EOF
           chmod 600 .kamal/secrets
-      
+
       - name: Deploy
         run: kamal deploy
 ```
