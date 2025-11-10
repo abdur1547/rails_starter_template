@@ -81,7 +81,7 @@ group :test do
   gem "selenium-webdriver"
 
   # RSpec matchers for common Rails functionality
-  gem "shoulda-matchers", "~> 6.4"
+  gem "shoulda-matchers", "~> 7.0"
 
   # Database cleaner for test isolation
   gem "database_cleaner-active_record", "~> 2.2"
