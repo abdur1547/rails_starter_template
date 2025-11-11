@@ -6,6 +6,7 @@ services:
 
     volumes:
       - ../../rails_starter_template:/workspaces/rails_starter_template:cached
+      - ${HOME}/.ssh:/root/.ssh:cached
 
     command: sleep infinity
 
