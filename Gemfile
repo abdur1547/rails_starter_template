@@ -74,7 +74,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # RSpec testing framework
-  gem "rspec-rails", "~> 7.1"
+  gem "rspec-rails", "~> 8.0"
 
   # Factory Bot for test fixtures
   gem "factory_bot_rails", "~> 6.4"
@@ -97,7 +97,7 @@ group :test do
   gem "selenium-webdriver"
 
   # RSpec matchers for common Rails functionality
-  gem "shoulda-matchers", "~> 6.4"
+  gem "shoulda-matchers", "~> 7.0"
 
   # Database cleaner for test isolation
   gem "database_cleaner-active_record", "~> 2.2"
