@@ -1,23 +1,26 @@
 source "https://rubygems.org"
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.1"
-# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "propshaft"
-# Use postgresql as the database for Active Record
+
+# DB
 gem "pg", "~> 1.1"
-# Use the Puma web server [https://github.com/puma/puma]
+
+# Web server
 gem "puma", ">= 5.0"
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+
+# Assets
+gem "propshaft"
 gem "importmap-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-# Fast JSON serialization for APIs [https://github.com/procore/blueprinter]
+
+# JSON
 gem "blueprinter"
 
-# HAML templating engine
+# CORS support
+gem "rack-cors", "~> 3.0"
+
+# HAML
 gem "haml", "~> 6.3"
 gem "haml-rails", "~> 2.1"
 
@@ -102,5 +105,3 @@ group :test do
   # Code coverage analysis
   gem "simplecov", "~> 0.22", require: false
 end
-
-gem "rack-cors", "~> 3.0"
