@@ -16,6 +16,7 @@ gem "stimulus-rails"
 
 # JSON
 gem "blueprinter"
+gem "oj"
 
 # CORS support
 gem "rack-cors", "~> 3.0"
