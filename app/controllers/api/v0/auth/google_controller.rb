@@ -17,7 +17,7 @@ module Api::V0::Auth
       # 2. Client sends ID token to this endpoint
       # 3. Server verifies token with Google
       # 4. Server creates/finds user and issues JWT
-      class GoogleController < BaseController
+      class GoogleController < Api::V0::ApiController
         skip_before_action :authenticate_api_v0_user!
 
         # POST /api/v0/auth/google
