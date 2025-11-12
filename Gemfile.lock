@@ -260,16 +260,6 @@ GEM
       logger
     mini_mime (1.1.5)
     minitest (5.26.1)
-    mission_control-jobs (1.1.0)
-      actioncable (>= 7.1)
-      actionpack (>= 7.1)
-      activejob (>= 7.1)
-      activerecord (>= 7.1)
-      importmap-rails (>= 1.2.1)
-      irb (~> 1.13)
-      railties (>= 7.1)
-      stimulus-rails
-      turbo-rails
     msgpack (1.8.0)
     multi_xml (0.7.2)
       bigdecimal (~> 3.1)
@@ -580,7 +570,6 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   kamal
-  mission_control-jobs
   omniauth-google-oauth2 (~> 1.1)
   omniauth-rails_csrf_protection
   pg (~> 1.1)
