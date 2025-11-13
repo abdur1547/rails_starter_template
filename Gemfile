@@ -57,8 +57,11 @@ gem "figaro"
 
 # Authentication
 gem "devise", "~> 4.9"
+gem "jwt", "~> 3.1"
 gem "omniauth-google-oauth2", "~> 1.1"
 gem "omniauth-rails_csrf_protection"
+
+gem "pagy", "~> 43.0", ">= 43.0.3"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -73,6 +76,8 @@ end
 group :development do
   gem "web-console"
   gem "html2haml"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do

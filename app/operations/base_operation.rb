@@ -14,34 +14,6 @@ class BaseOperation
       @value = value
       @errors = errors
     end
-
-    def success?
-      @success
-    end
-
-    def failure?
-      !@success
-    end
-
-    # Returns the value if success, raises if failure
-    def value!
-      raise "Operation failed: #{errors}" if failure?
-      @value
-    end
-
-    # Returns errors or empty hash
-    def errors_hash
-      case errors
-      when Dry::Validation::Result
-        errors.errors.to_h
-      when Hash
-        errors
-      when String
-        { base: [ errors ] }
-      else
-        {}
-      end
-    end
   end
 
   class << self
@@ -76,15 +48,15 @@ class BaseOperation
     # Validate parameters if contract is defined
     if self.class.contract_class
       validation_result = validate_params(params)
-      return wrap_result(Failure(validation_result)) if validation_result.failure?
+      return wrap_result(Failure(validation_result.errors.to_h)) if validation_result.failure?
     end
 
     # Call the main operation logic
     result = call(params)
     wrap_result(result)
-  rescue StandardError => e
-    # Catch any unhandled exceptions and return as failure
-    wrap_result(Failure(error: e.message, exception: e))
+    # rescue StandardError => e
+    #   # Catch any unhandled exceptions and return as failure
+    #   wrap_result(Failure(error: e.message, exception: e))
   end
 
   # Main operation logic - must be implemented by subclasses
