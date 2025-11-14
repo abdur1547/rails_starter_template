@@ -40,7 +40,7 @@ module Api::V0::Auth
     end
 
     def issue_new_tokens
-      token_pair = Jwt::Issuer.call(user)
+      token_pair = Jwt::Issuer.call(user).data
       @access_token = token_pair[:access_token]
       @refresh_token = token_pair[:refresh_token].token
     end
