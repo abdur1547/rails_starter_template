@@ -3,16 +3,16 @@
 module Jwt
   class Authenticator < BaseService
     def call(headers:, cookies:)
-      token = Jwt::Authenticator.authenticate_header(
+      token = authenticate_header(
         headers,
         cookies
       )
       raise ::Auth::MissingTokenError if token.blank?
 
-      decoded_token = Jwt::Decoder.call(access_token: token)
+      decoded_token = Jwt::Decoder.call(access_token: token).data
       raise ::Auth::UnauthorizedError unless decoded_token
 
-      user = Jwt::Authenticator.authenticate_user_from_token(decoded_token)
+      user = authenticate_user_from_token(decoded_token)
       raise ::Auth::UnauthorizedError if user.blank?
 
       success([ user, decoded_token ])
