@@ -16,6 +16,7 @@ gem "stimulus-rails"
 
 # JSON
 gem "blueprinter"
+gem "oj"
 
 # CORS support
 gem "rack-cors", "~> 3.0"
@@ -56,52 +57,33 @@ gem "figaro"
 
 # Authentication
 gem "devise", "~> 4.9"
-gem "devise-jwt", "~> 0.11"
+gem "jwt", "~> 3.1"
 gem "omniauth-google-oauth2", "~> 1.1"
 gem "omniauth-rails_csrf_protection"
 
+gem "pagy", "~> 43.0", ">= 43.0.3"
+
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-
-  # Audits gems for known security defects (use config/bundler-audit.yml to ignore issues)
   gem "bundler-audit", require: false
-
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
-
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-
-  # RSpec testing framework
   gem "rspec-rails", "~> 8.0"
-
-  # Factory Bot for test fixtures
   gem "factory_bot_rails", "~> 6.4"
-
-  # Generate fake data for testing
   gem "faker", "~> 3.5"
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Convert HTML/ERB to HAML
   gem "html2haml"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-
-  # RSpec matchers for common Rails functionality
   gem "shoulda-matchers", "~> 7.0"
-
-  # Database cleaner for test isolation
   gem "database_cleaner-active_record", "~> 2.2"
-
-  # Code coverage analysis
   gem "simplecov", "~> 0.22", require: false
 end

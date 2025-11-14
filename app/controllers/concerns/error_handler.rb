@@ -37,7 +37,7 @@ module ErrorHandler
   end
 
   def unprocessable_entity(reason)
-    render json: { success: false, errors: [ reason ] }, status: :unprocessable_entity
+    render json: { success: false, errors: reason }, status: :unprocessable_entity
   end
 
   def forbidden_response(reason = "forbidden")

@@ -14,34 +14,6 @@ class BaseOperation
       @value = value
       @errors = errors
     end
-
-    def success?
-      @success
-    end
-
-    def failure?
-      !@success
-    end
-
-    # Returns the value if success, raises if failure
-    def value!
-      raise "Operation failed: #{errors}" if failure?
-      @value
-    end
-
-    # Returns errors or empty hash
-    def errors_hash
-      case errors
-      when Dry::Validation::Result
-        errors.errors.to_h
-      when Hash
-        errors
-      when String
-        { base: [ errors ] }
-      else
-        {}
-      end
-    end
   end
 
   class << self
@@ -62,29 +34,27 @@ class BaseOperation
     end
 
     # Execute the operation with automatic validation
-    # @param params [Hash] Parameters to validate and pass to call method
-    # @return [Result] Operation result
-    def call(params = {})
-      new.execute(params)
+    # Accepts any number of arguments and forwards them to the instance
+    def call(*args)
+      new.execute(*args)
     end
   end
 
   # Execute the operation with validation and error handling
-  # @param params [Hash] Parameters to validate
-  # @return [Result] Operation result
-  def execute(params)
-    # Validate parameters if contract is defined
-    if self.class.contract_class
-      validation_result = validate_params(params)
-      return wrap_result(Failure(validation_result)) if validation_result.failure?
+  # Accepts any number of arguments and forwards them to call
+  def execute(*args)
+    # If contract is defined, validate only the first argument (params)
+    if self.class.contract_class && args.any?
+      validation_result = validate_params(args[0])
+      return wrap_result(Failure(validation_result.errors.to_h)) if validation_result.failure?
     end
 
-    # Call the main operation logic
-    result = call(params)
+    # Call the main operation logic with all arguments
+    result = call(*args)
     wrap_result(result)
-  rescue StandardError => e
-    # Catch any unhandled exceptions and return as failure
-    wrap_result(Failure(error: e.message, exception: e))
+    # rescue StandardError => e
+    #   # Catch any unhandled exceptions and return as failure
+    #   wrap_result(Failure(error: e.message, exception: e))
   end
 
   # Main operation logic - must be implemented by subclasses

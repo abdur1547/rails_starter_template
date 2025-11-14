@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'fc50c3f391847ceb2757e6d7fff5b43c2602df16e5a8845f71871074c9804f5c72321746f7000cf81dffcf5cf56c2277e7546cc89fc597ccefe665ce387e0672'
+  config.secret_key = ENV.fetch("SECRET_KEY_BASE", nil)
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = "devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '88c266e1d6baf38b6c562e80ac340d0a57c7723aa8ee3822bc50ad98e31940de1b2702878e6b698ecc419acaf5ddb16676f81cf2f94016d02822984c05658966'
+  # config.pepper = '5e5987ae39fdaa0f23271d484b011426'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -272,20 +272,13 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
-  # Google OAuth2 Configuration
-  # For development, you can use dummy credentials or set them in config/application.yml
-  # For production, set these in Rails credentials: rails credentials:edit
-  config.omniauth :google_oauth2,
-    ENV["GOOGLE_CLIENT_ID"] || "GOOGLE_CLIENT_ID",
-    ENV["GOOGLE_CLIENT_SECRET"] || "GOOGLE_CLIENT_SECRET",
-    {
-      scope: "email,profile",
-      prompt: "select_account",
-      image_aspect_ratio: "square",
-      image_size: 50,
-      skip_jwt: true
-    }
+  config.omniauth :google_oauth2, ENV.fetch("GOOGLE_CLIENT_ID", nil), ENV.fetch("GOOGLE_CLIENT_SECRET", nil), {
+    scope: "email,profile",
+    prompt: "select_account",
+    image_aspect_ratio: "square",
+    image_size: 50,
+    access_type: "offline"
+  }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -324,19 +317,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-
-  # ==> JWT Configuration
-  # Configure devise-jwt for API authentication
-  config.jwt do |jwt|
-    jwt.secret = ENV["JWT_SECRET_KEY"]
-    jwt.dispatch_requests = [
-      [ "POST", %r{^/api/v0/auth/sign_in$ } ],
-      [ "POST", %r{^/api/v0/auth/sign_up$} ],
-      [ "POST", %r{^/api/v0/auth/google$} ]
-    ]
-    jwt.revocation_requests = [
-      [ "DELETE", %r{^/api/v0/auth/sign_out$} ]
-    ]
-    jwt.expiration_time = 1.day.to_i
-  end
 end
