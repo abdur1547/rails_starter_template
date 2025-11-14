@@ -14,7 +14,7 @@ module Api::V0
       current_user, decoded_token = Jwt::Authenticator.call(
         headers: request.headers,
         cookies: request.cookies
-      )
+      ).data
 
       @current_user ||= current_user
       @decoded_token ||= decoded_token
