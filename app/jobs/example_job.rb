@@ -4,6 +4,6 @@ class ExampleJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    # Do something later
+    puts "Example job is running with arguments: #{args.inspect}"
   end
 end
