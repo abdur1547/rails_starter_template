@@ -6,6 +6,7 @@ namespace :api do
       post :signup, to: "auth#signup"
       post :signin, to: "auth#signin"
       post :refresh, to: "auth#refresh"
+      delete :signout, to: "auth#signout"
     end
   end
 end

@@ -39,6 +39,15 @@ module Api::V0
       end
     end
 
+    def signout
+      result = Api::V0::Auth::SignoutOperation.call(current_user, decoded_token)
+      if result.success
+        success_response({})
+      else
+        unprocessable_entity(result.errors)
+      end
+    end
+
     private
 
     def set_auth_cookies(access_token, refresh_token)
