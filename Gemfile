@@ -22,8 +22,8 @@ gem "oj"
 gem "rack-cors", "~> 3.0"
 
 # HAML
-gem "haml", "~> 6.3"
 gem "haml-rails", "~> 3.0"
+gem "haml", "~> 7.0"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -61,7 +61,7 @@ gem "jwt", "~> 3.1"
 gem "omniauth-google-oauth2", "~> 1.1"
 gem "omniauth-rails_csrf_protection"
 
-gem "pagy", "~> 43.0", ">= 43.0.3"
+gem "pagy", "~> 43.0"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
