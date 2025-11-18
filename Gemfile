@@ -61,7 +61,7 @@ gem "jwt", "~> 3.1"
 gem "omniauth-google-oauth2", "~> 1.1"
 gem "omniauth-rails_csrf_protection"
 
-gem "pagy", "~> 43.0", ">= 43.0.3"
+gem "pagy", "~> 43.0"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
