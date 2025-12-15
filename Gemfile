@@ -23,7 +23,7 @@ gem "rack-cors", "~> 3.0"
 
 # HAML
 gem "haml-rails", "~> 3.0"
-gem "haml", "~> 7.0"
+gem "haml", "~> 7.1"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
