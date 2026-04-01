@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 8.1.2"
+gem "rails", "~> 8.1.3"
 
 # DB
 gem "pg", "~> 1.6"
@@ -58,10 +58,10 @@ gem "figaro"
 # Authentication
 gem "devise", "~> 4.9"
 gem "jwt", "~> 3.1"
-gem "omniauth-google-oauth2", "~> 1.1"
+gem "omniauth-google-oauth2", "~> 1.2"
 gem "omniauth-rails_csrf_protection"
 
-gem "pagy", "~> 43.2"
+gem "pagy", "~> 43.4"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
