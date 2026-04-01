@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 8.1.1"
+gem "rails", "~> 8.1.3"
 
 # DB
 gem "pg", "~> 1.6"
@@ -23,7 +23,7 @@ gem "rack-cors", "~> 3.0"
 
 # HAML
 gem "haml-rails", "~> 3.0"
-gem "haml", "~> 7.1"
+gem "haml", "~> 7.2"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -58,10 +58,10 @@ gem "figaro"
 # Authentication
 gem "devise", "~> 4.9"
 gem "jwt", "~> 3.1"
-gem "omniauth-google-oauth2", "~> 1.1"
+gem "omniauth-google-oauth2", "~> 1.2"
 gem "omniauth-rails_csrf_protection"
 
-gem "pagy", "~> 43.2"
+gem "pagy", "~> 43.4"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -70,7 +70,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails", "~> 8.0"
   gem "factory_bot_rails", "~> 6.4"
-  gem "faker", "~> 3.5"
+  gem "faker", "~> 3.6"
 end
 
 group :development do
