@@ -3,6 +3,7 @@
 # Ignore git directory.
 /.git/
 /.gitignore
+/.github/
 
 # Ignore bundler config.
 /.bundle
@@ -49,3 +50,6 @@
 # Ignore Docker-related files
 /.dockerignore
 /Dockerfile*
+
+/dev
+/doc
