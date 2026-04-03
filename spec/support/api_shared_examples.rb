@@ -3,11 +3,11 @@
 # Shared examples for API request specs
 RSpec.shared_examples "valid JSON response structure" do
   it "returns valid JSON" do
-    expect { json_response }.not_to raise_error
+    expect { JSON.parse(response.body, symbolize_names: true) }.not_to raise_error
   end
 
   it "includes success field" do
-    expect(json_response).to have_key(:success)
+    expect(JSON.parse(response.body, symbolize_names: true)).to have_key(:success)
   end
 end
 
@@ -16,12 +16,12 @@ RSpec.shared_examples "successful API response" do
   include_examples "valid JSON response structure"
 
   it "returns success true" do
-    expect(json_response[:success]).to be true
+    expect(response.parsed_body[:success]).to be true
   end
 
   it "includes data field" do
-    expect(json_response).to have_key(:data)
-    expect(json_response[:data]).to be_a(Hash)
+    expect(response.parsed_body).to have_key(:data)
+    expect(response.parsed_body[:data]).to be_a(Hash)
   end
 end
 
@@ -30,11 +30,11 @@ RSpec.shared_examples "error API response" do
   include_examples "valid JSON response structure"
 
   it "returns success false" do
-    expect(json_response[:success]).to be false
+    expect(response.parsed_body[:success]).to be false
   end
 
   it "includes errors field" do
-    expect(json_response).to have_key(:errors)
+    expect(response.parsed_body).to have_key(:errors)
   end
 end
 
@@ -56,7 +56,7 @@ RSpec.shared_examples "security response without user enumeration" do
   include_examples "successful API response"
 
   it "returns generic message" do
-    expect(json_response[:data][:message]).to include("If an account exists")
+    expect(response.parsed_body[:data][:message]).to include("If an account exists")
   end
 end
 
@@ -67,7 +67,7 @@ RSpec.shared_examples "invalid OTP scenario" do
   include_examples "unprocessable entity response"
 
   it "includes invalid or expired error message" do
-    expect(json_response[:errors][:error]).to include("Invalid or expired")
+    expect(response.parsed_body[:errors][:error]).to include("Invalid or expired")
   end
 
   it "does not update the user's password" do
@@ -90,7 +90,7 @@ RSpec.shared_examples "validation error scenario" do |field|
   include_examples "unprocessable entity response"
 
   it "includes #{field} in errors" do
-    expect(json_response[:errors]).to have_key(field)
+    expect(response.parsed_body[:errors]).to have_key(field)
   end
 
   it "does not update password" do
