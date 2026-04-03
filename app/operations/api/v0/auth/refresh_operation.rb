@@ -11,12 +11,13 @@ module Api::V0::Auth
     def call(params)
       @params = params
       yield validate_refresh_token
+      issue_new_tokens
       Success(json_serialize)
     end
 
     private
 
-    attr_reader :params, :user, :decoded_token
+    attr_reader :params, :user, :access_token, :refresh_token
 
     def validate_refresh_token
       refresh_token = RefreshToken.find_by_token(params[:refresh_token]) # rubocop:disable Rails/DynamicFindBy
@@ -28,9 +29,16 @@ module Api::V0::Auth
       Success()
     end
 
+    def issue_new_tokens
+      token_pair = Jwt::Issuer.call(user).data
+      @access_token = token_pair[:access_token]
+      @refresh_token = token_pair[:refresh_token].token
+    end
+
     def json_serialize
       {
-        access_token: Jwt::Encoder.call(user).data.first
+        access_token: "#{Constants::TOKEN_TYPE} #{access_token}",
+        refresh_token: refresh_token
       }
     end
   end
