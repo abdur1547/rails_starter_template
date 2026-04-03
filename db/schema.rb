@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2024_08_13_073724) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_03_111155) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,6 +22,18 @@ ActiveRecord::Schema[8.1].define(version: 2024_08_13_073724) do
     t.bigint "user_id", null: false
     t.index ["jti"], name: "index_blacklisted_tokens_on_jti", unique: true
     t.index ["user_id"], name: "index_blacklisted_tokens_on_user_id"
+  end
+
+  create_table "password_reset_tokens", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "expires_at", null: false
+    t.string "otp_code_digest", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "used_at"
+    t.bigint "user_id", null: false
+    t.index ["expires_at"], name: "index_password_reset_tokens_on_expires_at"
+    t.index ["otp_code_digest"], name: "index_password_reset_tokens_on_otp_code_digest"
+    t.index ["user_id"], name: "index_password_reset_tokens_on_user_id"
   end
 
   create_table "refresh_tokens", force: :cascade do |t|
@@ -51,5 +63,6 @@ ActiveRecord::Schema[8.1].define(version: 2024_08_13_073724) do
   end
 
   add_foreign_key "blacklisted_tokens", "users"
+  add_foreign_key "password_reset_tokens", "users"
   add_foreign_key "refresh_tokens", "users"
 end
