@@ -106,7 +106,7 @@ production:
     <<: *default
     database: new_rails_template_production
     username: rails_starter_template
-    password: <%= ENV["NEW_RAILS_TEMPLATE_DATABASE_PASSWORD"] %>
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: new_rails_template_production_cache
