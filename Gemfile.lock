@@ -326,7 +326,7 @@ GEM
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
-    pagy (43.4.4)
+    pagy (43.5.0)
       json
       uri
       yaml
@@ -583,7 +583,7 @@ DEPENDENCIES
   oj
   omniauth-google-oauth2 (~> 1.2)
   omniauth-rails_csrf_protection
-  pagy (~> 43.4)
+  pagy (~> 43.5)
   pg (~> 1.6)
   propshaft
   puma (>= 5.0)
