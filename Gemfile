@@ -50,7 +50,7 @@ gem "image_processing", "~> 1.2"
 
 # Dry gems for operations pattern
 gem "dry-validation", "~> 1.10"
-gem "dry-monads", "~> 1.6"
+gem "dry-monads", "~> 1.10"
 
 # Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
 gem "figaro"
