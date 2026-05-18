@@ -57,7 +57,7 @@ gem "figaro"
 
 # Authentication
 gem "devise", "~> 5.0"
-gem "jwt", "~> 3.1"
+gem "jwt", "~> 3.2"
 gem "omniauth-google-oauth2", "~> 1.2"
 gem "omniauth-rails_csrf_protection"
 
