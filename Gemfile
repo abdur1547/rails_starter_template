@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "rails", "~> 8.1.4"
 
 # DB
-gem "pg", "~> 1.6"
+gem "pg", "~> 1.7"
 
 # Web server
 gem "puma", ">= 5.0"
